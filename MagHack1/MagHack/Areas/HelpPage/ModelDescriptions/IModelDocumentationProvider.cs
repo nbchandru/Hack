@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace MagHack1.Areas.HelpPage.ModelDescriptions
+namespace MagHack.Areas.HelpPage.ModelDescriptions
 {
     public interface IModelDocumentationProvider
     {

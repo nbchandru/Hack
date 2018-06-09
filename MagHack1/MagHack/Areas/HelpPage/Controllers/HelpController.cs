@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using MagHack1.Areas.HelpPage.ModelDescriptions;
-using MagHack1.Areas.HelpPage.Models;
+using MagHack.Areas.HelpPage.ModelDescriptions;
+using MagHack.Areas.HelpPage.Models;
 
-namespace MagHack1.Areas.HelpPage.Controllers
+namespace MagHack.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace MagHack1
+namespace MagHack
 {
     public class BundleConfig
     {

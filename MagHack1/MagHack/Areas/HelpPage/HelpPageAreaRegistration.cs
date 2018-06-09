@@ -1,7 +1,7 @@
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace MagHack1.Areas.HelpPage
+namespace MagHack.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {

@@ -1,4 +1,4 @@
-namespace MagHack1.Areas.HelpPage
+namespace MagHack.Areas.HelpPage
 {
     /// <summary>
     /// Indicates whether the sample is used for request or response

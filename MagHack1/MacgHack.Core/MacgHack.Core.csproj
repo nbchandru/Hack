@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBaseAccess\IConnection.cs" />
-    <Compile Include="DataBaseAccess\OracleDBConnection.cs" />
+    <Compile Include="DataBaseAccess\ODBConnection.cs" />
     <Compile Include="Model\IModel.cs" />
     <Compile Include="DataSet\IDataSet.cs" />
     <Compile Include="DataSet\DBDataSet.cs" />

@@ -3,7 +3,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http.Description;
 
-namespace MagHack1.Areas.HelpPage
+namespace MagHack.Areas.HelpPage
 {
     public static class ApiDescriptionExtensions
     {

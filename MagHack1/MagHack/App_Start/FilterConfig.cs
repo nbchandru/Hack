@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace MagHack1
+namespace MagHack
 {
     public class FilterConfig
     {

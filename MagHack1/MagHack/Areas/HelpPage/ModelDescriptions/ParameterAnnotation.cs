@@ -1,6 +1,6 @@
 using System;
 
-namespace MagHack1.Areas.HelpPage.ModelDescriptions
+namespace MagHack.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterAnnotation
     {

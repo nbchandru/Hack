@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace MagHack1.Areas.HelpPage.ModelDescriptions
+namespace MagHack.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterDescription
     {

@@ -11,10 +11,10 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using MagHack1.Areas.HelpPage.ModelDescriptions;
-using MagHack1.Areas.HelpPage.Models;
+using MagHack.Areas.HelpPage.ModelDescriptions;
+using MagHack.Areas.HelpPage.Models;
 
-namespace MagHack1.Areas.HelpPage
+namespace MagHack.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

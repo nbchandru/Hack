@@ -1,6 +1,6 @@
 using System;
 
-namespace MagHack1.Areas.HelpPage
+namespace MagHack.Areas.HelpPage
 {
     /// <summary>
     /// This represents an image sample on the help page. There's a display template named ImageSample associated with this class.

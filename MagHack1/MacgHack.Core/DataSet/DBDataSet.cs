@@ -13,11 +13,9 @@ namespace MacgHack.Core.DataSet
     {
         private OdbcDataReader m_dataReader;
 
-        private Type m_resultType;
-        public DBDataSet(IConnection dbConnection, string queryString,Cl resultType)
+        public DBDataSet(IConnection dbConnection, string queryString)
         {
             m_dataReader = dbConnection.CreateReaderWithQueryString(queryString);
-            m_resultType = resultType;
 
         }
 
@@ -37,6 +35,7 @@ namespace MacgHack.Core.DataSet
         {
             var objArray = new Object[4];
             var a = m_dataReader.GetValues(objArray);
+            m_dataReader.Cast<PersonModel>();
             return objArray.Select(x => x.ToString()).ToList();
         }
 
