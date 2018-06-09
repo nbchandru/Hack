@@ -1,0 +1,6 @@
+C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\bin\x64\Debug\magHack.core.dll
+C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\bin\x64\Debug\magHack.core.pdb
+C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\obj\x64\Debug\magHack.core.dll
+C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\obj\x64\Debug\magHack.core.pdb
+C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\bin\x64\Debug\Newtonsoft.Json.dll
+C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\bin\x64\Debug\Newtonsoft.Json.xml

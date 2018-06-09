@@ -1,0 +1,5 @@
+C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\bin\x64\Release\magHack.core.dll
+C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\bin\x64\Release\magHack.core.pdb
+C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\obj\x64\Release\magHack.core.csprojResolveAssemblyReference.cache
+C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\obj\x64\Release\magHack.core.dll
+C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\obj\x64\Release\magHack.core.pdb

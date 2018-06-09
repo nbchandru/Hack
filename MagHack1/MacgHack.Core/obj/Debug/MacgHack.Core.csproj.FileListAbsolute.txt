@@ -1,4 +1,0 @@
-C:\Users\bchandrasekar\Box\Hack\MagHack1\MacgHack.Core\bin\Debug\MacgHack.Core.dll
-C:\Users\bchandrasekar\Box\Hack\MagHack1\MacgHack.Core\bin\Debug\MacgHack.Core.pdb
-C:\Users\bchandrasekar\Box\Hack\MagHack1\MacgHack.Core\obj\Debug\MacgHack.Core.dll
-C:\Users\bchandrasekar\Box\Hack\MagHack1\MacgHack.Core\obj\Debug\MacgHack.Core.pdb

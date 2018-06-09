@@ -1,0 +1,7 @@
+C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\bin\Debug\magHack.core.dll
+C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\bin\Debug\magHack.core.pdb
+C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\obj\Debug\magHack.core.dll
+C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\obj\Debug\magHack.core.pdb
+C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\bin\Debug\Newtonsoft.Json.dll
+C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\bin\Debug\Newtonsoft.Json.xml
+C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\obj\Debug\magHack.core.csprojResolveAssemblyReference.cache

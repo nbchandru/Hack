@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "magHack.restApi", "magHack\magHack.restApi.csproj", "{9AAF7CF6-9087-4463-8670-2E9B40BFF0C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "magHack.core", "magHack.core\magHack.core.csproj", "{18FD4635-5C19-447B-829F-AA58AB65591A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		64|Any CPU = 64|Any CPU
+		64|x64 = 64|x64
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9AAF7CF6-9087-4463-8670-2E9B40BFF0C9}.64|Any CPU.ActiveCfg = 64|Any CPU
+		{9AAF7CF6-9087-4463-8670-2E9B40BFF0C9}.64|Any CPU.Build.0 = 64|Any CPU
+		{9AAF7CF6-9087-4463-8670-2E9B40BFF0C9}.64|x64.ActiveCfg = 64|x64
+		{9AAF7CF6-9087-4463-8670-2E9B40BFF0C9}.64|x64.Build.0 = 64|x64
+		{9AAF7CF6-9087-4463-8670-2E9B40BFF0C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AAF7CF6-9087-4463-8670-2E9B40BFF0C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AAF7CF6-9087-4463-8670-2E9B40BFF0C9}.Debug|x64.ActiveCfg = Debug|x64
+		{9AAF7CF6-9087-4463-8670-2E9B40BFF0C9}.Debug|x64.Build.0 = Debug|x64
+		{9AAF7CF6-9087-4463-8670-2E9B40BFF0C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AAF7CF6-9087-4463-8670-2E9B40BFF0C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AAF7CF6-9087-4463-8670-2E9B40BFF0C9}.Release|x64.ActiveCfg = Release|x64
+		{9AAF7CF6-9087-4463-8670-2E9B40BFF0C9}.Release|x64.Build.0 = Release|x64
+		{18FD4635-5C19-447B-829F-AA58AB65591A}.64|Any CPU.ActiveCfg = 64|Any CPU
+		{18FD4635-5C19-447B-829F-AA58AB65591A}.64|Any CPU.Build.0 = 64|Any CPU
+		{18FD4635-5C19-447B-829F-AA58AB65591A}.64|x64.ActiveCfg = 64|x64
+		{18FD4635-5C19-447B-829F-AA58AB65591A}.64|x64.Build.0 = 64|x64
+		{18FD4635-5C19-447B-829F-AA58AB65591A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18FD4635-5C19-447B-829F-AA58AB65591A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18FD4635-5C19-447B-829F-AA58AB65591A}.Debug|x64.ActiveCfg = Debug|x64
+		{18FD4635-5C19-447B-829F-AA58AB65591A}.Debug|x64.Build.0 = Debug|x64
+		{18FD4635-5C19-447B-829F-AA58AB65591A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18FD4635-5C19-447B-829F-AA58AB65591A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18FD4635-5C19-447B-829F-AA58AB65591A}.Release|x64.ActiveCfg = Release|x64
+		{18FD4635-5C19-447B-829F-AA58AB65591A}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
