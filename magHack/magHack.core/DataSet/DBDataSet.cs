@@ -13,6 +13,30 @@ namespace magHack.core.DataSet
     {
         private OdbcDataReader m_dataReader;
 
+        private int m_count;
+        public List<string> ColumnNames
+        {
+            get
+            {
+                var count = m_dataReader.FieldCount;
+                List<string> columnNames = new List<string>();
+                for (int i = 0;i < count; i++)
+                {
+                    columnNames.Add(m_dataReader.GetName(i));
+                }
+                return columnNames;
+
+            }
+        }
+
+        public int Count
+        {
+            get
+            {
+                return m_count;
+            }
+        }
+
         public DBDataSet(IConnection dbConnection, string queryString)
         {
             var con = dbConnection.GetDBConnection() as OdbcConnection;
@@ -32,16 +56,14 @@ namespace magHack.core.DataSet
         {
             Dispose(true);
         }
-        public List<string> GetRow()
+        public string GetValue(string columnName)
         {
-            var objArray = new Object[4];
-            var a = m_dataReader.GetValues(objArray);
-            m_dataReader.Cast<PersonModel>();
-            return objArray.Select(x => x.ToString()).ToList();
+            return m_dataReader.GetValue(ColumnNames.IndexOf(columnName)).ToString();
         }
 
         public bool MoveNext()
         {
+            m_count++;
             return m_dataReader.Read();
         }
     }

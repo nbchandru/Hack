@@ -8,7 +8,9 @@ namespace magHack.core.DataSet
 {
     public interface IDataSet : IDisposable
     {
-        List<string> GetRow();
+        int Count { get; }
+        List<string> ColumnNames { get; }
+        string GetValue(string column);
         bool MoveNext();
     }
 }

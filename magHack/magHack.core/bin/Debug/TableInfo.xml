@@ -4,6 +4,9 @@
       <name>Person</name>
     </table>
     <table>
+      <name>Cafe</name>
+    </table>
+    <table>
       <name>Customer</name>
     </table>
     <table>

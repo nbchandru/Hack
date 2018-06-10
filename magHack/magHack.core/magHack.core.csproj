@@ -60,6 +60,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -74,10 +75,12 @@
     <Compile Include="DataSet\DBDataSet.cs" />
     <Compile Include="DataSet\IDataSet.cs" />
     <Compile Include="Helper.cs" />
-    <Compile Include="Model\Cafe.cs" />
+    <Compile Include="Model\CafeMenueInsertModel.cs" />
+    <Compile Include="Model\CafeModel.cs" />
     <Compile Include="Model\CafeMenueModel.cs" />
     <Compile Include="Model\CafeteriaVendor.cs" />
     <Compile Include="Model\CafeteriaManagerModel.cs" />
+    <Compile Include="Model\CafeUpdateModel.cs" />
     <Compile Include="Model\CafeUser.cs" />
     <Compile Include="Model\CustomerModel.cs" />
     <Compile Include="Model\CustomerOrderFoodListModel.cs" />
@@ -85,7 +88,10 @@
     <Compile Include="Model\FoodItemModel.cs" />
     <Compile Include="Model\FoodItemRecipeModel.cs" />
     <Compile Include="Model\IModel.cs" />
+    <Compile Include="Model\InventoryUpdateModel.cs" />
+    <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\PersonModel.cs" />
+    <Compile Include="Model\SignUpModel.cs" />
     <Compile Include="Model\StoreHouseInventoryModel.cs" />
     <Compile Include="Persister\ODBCPersister.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
