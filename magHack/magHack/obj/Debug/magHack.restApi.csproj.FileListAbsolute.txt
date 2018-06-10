@@ -89,3 +89,5 @@ C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack\bin\System.Web.Http.Owi
 C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack\obj\Debug\magHack.restApi.csprojResolveAssemblyReference.cache
 C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack\obj\Debug\magHack.dll
 C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack\obj\Debug\magHack.pdb
+C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack\bin\TableInfo.xml
+C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack\bin\Queries.json

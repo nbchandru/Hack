@@ -12,10 +12,9 @@ namespace magHack.core.DataBaseAccess
     public class ODBConnection : IConnection
     {
         private OdbcConnection m_odbcConnection;
-        private OdbcCommand m_command;
 
         private string m_connectionString;
-
+            
         public ODBConnection(string connectionString)
         {
             m_connectionString = connectionString;
@@ -28,7 +27,7 @@ namespace magHack.core.DataBaseAccess
         private void TesteOleDB()
         {
             {
-                var tester = new OleDbConnection("Provider=OraOLEDB.Oracle.1;Data Source=oraodbc;User ID=MagniFoodSchema;Password=MagniFoodSchema;");
+                var tester = new OleDbConnection(Constants.OLEDBString);
                 tester.Open();
                 tester.Close();
             }
@@ -73,12 +72,12 @@ namespace magHack.core.DataBaseAccess
         {
             if (clearManaged)
             {
-                Dispose();
+                Close();
             }
         }
         public void Dispose()
         {
-            Close();
+            Dispose(true);
         }
 
         public bool Reconnect()
@@ -88,10 +87,9 @@ namespace magHack.core.DataBaseAccess
             return Connect();
         }
 
-        public OdbcDataReader CreateReaderWithQueryString(string queryString)
+        public ICloneable GetDBConnection()
         {
-            m_command = new OdbcCommand(queryString, m_odbcConnection);
-            return m_command.ExecuteReader();
+            return m_odbcConnection;
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace magHack.core.Model
 {
-    public class CafeUser : CafeteriaVendorUser, IModel
+    public class CafeUser : CafeteriaManagerModel, IModel
     {
         public string CafeID { get; set; }
     }

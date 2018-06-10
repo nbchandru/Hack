@@ -11,9 +11,8 @@ namespace magHack.core.Model
     public class FoodItemRecipeModel
     {
         public string FoodItemID { get; set; }
-        public string FoodItemIngredientQuantity { get; set; }
+        public float FoodItemIngredientQuantity { get; set; }
         public Unit FoodItemIngredientQuantityUnit { get; set; }
-
         public string StoreHouseIngredientID { get; set; }
     }
 

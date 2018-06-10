@@ -5,3 +5,5 @@ C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\obj\Debug\magHack.
 C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\bin\Debug\Newtonsoft.Json.dll
 C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\bin\Debug\Newtonsoft.Json.xml
 C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\obj\Debug\magHack.core.csprojResolveAssemblyReference.cache
+C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\bin\Debug\TableInfo.xml
+C:\Users\bchandrasekar\Desktop\Hackathon\magHack\magHack.core\bin\Debug\Queries.json

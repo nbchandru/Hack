@@ -68,13 +68,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
     <Compile Include="DataBaseAccess\IConnection.cs" />
     <Compile Include="DataBaseAccess\ODBConnection.cs" />
     <Compile Include="DataSet\DBDataSet.cs" />
     <Compile Include="DataSet\IDataSet.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="Model\Cafe.cs" />
+    <Compile Include="Model\CafeMenueModel.cs" />
     <Compile Include="Model\CafeteriaVendor.cs" />
-    <Compile Include="Model\CafeteriaVendorUser.cs" />
+    <Compile Include="Model\CafeteriaManagerModel.cs" />
     <Compile Include="Model\CafeUser.cs" />
     <Compile Include="Model\CustomerModel.cs" />
     <Compile Include="Model\CustomerOrderFoodListModel.cs" />
@@ -83,10 +86,20 @@
     <Compile Include="Model\FoodItemRecipeModel.cs" />
     <Compile Include="Model\IModel.cs" />
     <Compile Include="Model\PersonModel.cs" />
+    <Compile Include="Model\StoreHouseInventoryModel.cs" />
+    <Compile Include="Persister\ODBCPersister.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Queries.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TableInfo.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

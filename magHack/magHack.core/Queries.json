@@ -1,0 +1,17 @@
+{
+  "checkPersonID": "select count(UserID) from  MagniFoodSchema.Person where UserID Like'%{0}%';",
+  "insertPersonLong": "insert into MagniFoodSchema.Person (UserID,PersonName,PersonEmailID,PersonMobContactNumber) values('{0}','{1}','{0}','{2}');",
+  "insertPersonShort": "insert into MagniFoodSchema.Person (UserID,PersonEmailID) values('{0}','{0}')",
+  "checkCustomer": "select count(UserID) from  MagniFoodSchema.Customer where CustomerID Like'%{0}%';",
+  "checkCustomerPassword": "select count(UserID) from  MagniFoodSchema.Customer where UserID Like'%{0}%' AND CustomerPassword Like '%{1}%' AND CustomerStatus Like '%{2}%';",
+  "insertCustomerLong": "insert into MagniFoodSchema.Customer (CustomerID,CustomerType,CustomerPassword,CustomerStatus) values ('{0}','{1}','{2}','{3}');",
+  "insertCustomerShort": "insert into MagniFoodSchema.Customer (CustomerID,CustomerPassword) values ('{0}','{1}');",
+  "checkCafeteriaManager": "select count(CafeteriaManagerID) from  MagniFoodSchema.CafeteriaManager where CafeteriaManagerID Like'%{0}%';",
+  "checkCafeteriaManagerPassword": "select count(CafeteriaManagerID) from  MagniFoodSchema.CafeteriaManager where CafeteriaManagerID Like'%{0}%' AND CafeteriaManagerPassword Like '%{1}%' AND CafeteriaManagerrStatus Like '%{2}%';",
+  "checkCafeteria": "select count(CafeteriaVendorID) from MagniFoodSchema.CafeteriaVendor where CafeteriaVendorID Like'%{0}%' and CafeteriaVendorStatus like '%{1}%';",
+  "insertCafeteriaManager": "insert into MagniFoodSchema.CafeteriaManager values ('{0}','{1}','{2}','{3}');",
+  "checkCafe": "select count(CafeID) from MagniFoodSchema.Cafe where CafeID Like'%{0}%' and CafeStatus like '%{1}%';",
+  "checkCafePassword": "select count(CafeUserID) from  MagniFoodSchema.CafeUser where CafeUserID Like'%{0}%' AND CafeUserPassword Like '%{1}%' AND CafeUserStatus Like '%{2}%';",
+  "checkCafeUser": "select count(CafeUserID) from  MagniFoodSchema.CafeUser where CafeUserID Like'%{0}%';",
+  "insertCafeUser": "insert into MagniFoodSchema.CafeUser values ('{0}','{1}','{2}','{3}');"
+}

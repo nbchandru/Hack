@@ -1,0 +1,41 @@
+﻿<db>
+  <tableDetails>
+    <table>
+      <name>Person</name>
+    </table>
+    <table>
+      <name>Customer</name>
+    </table>
+    <table>
+      <name>CafeteriaVendor</name>
+    </table>
+    <table>
+      <name>CafeteriaVendorUser</name>
+    </table>
+    <table>
+      <name>StoreHouseInventory</name>
+    </table>
+    <table>
+      <name>CafeUser</name>
+    </table>
+    <table>
+      <name>CafeMenu</name>
+    </table>
+    <table>
+      <name>FoodItem</name>
+    </table>
+    <table>
+      <name>CafeMenuFoodItemRecipe</name>
+    </table>
+    <table>
+      <name>CustomerOrder</name>
+    </table>
+    <table>
+      <name>CustomerOrderFoodList</name>
+    </table>
+  </tableDetails>
+  <connectionstring>
+    <odbc><![CDATA["Driver={Simba Oracle ODBC Driver};HOST=localhost;PORT=1521;UID=MagniFoodSchema;PWD=MagniFoodSchema;SVC=oraodbc"]]></odbc>
+    <oledb><![CDATA["Provider=OraOLEDB.Oracle.1;Data Source=oraodbc;User ID=MagniFoodSchema;Password=MagniFoodSchema;"]]></oledb>
+  </connectionstring>
+</db>

@@ -10,8 +10,8 @@ namespace magHack.Models
     [Serializable]
     public class SignUpModel
     {
-        public string UserType { get; set; }
-        public string UserName { get; set; }
+        public UserType Type { get; set; }
+        public string UserID { get; set; }
         public string NewPassword{ get; set; }
         public string ConfirmPassword{ get; set; }
 
@@ -19,15 +19,18 @@ namespace magHack.Models
 
         public string PhoneNumber{ get; set; }
 
-        public bool ValidateUserName()
+        public string VendorID { get; set; }
+
+        public string CafeID { get; set; }
+
+        public bool ValidateUserID()
         {
-            return Regex.IsMatch(UserName, @"^[a-zA-Z0-9]+$", RegexOptions.IgnoreCase);
+            return Regex.IsMatch(UserID, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
         }
         public bool ValidateEmail()
         {
             return Regex.IsMatch(Email, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase);
         }
-
         public bool ValidatePassword()
         {
             if (ConfirmPassword == NewPassword)
@@ -37,13 +40,13 @@ namespace magHack.Models
 
             return false;
         }
-    }//^[a-zA-Z0-9]+$
+    }
 
     [JsonConverter(typeof(StringEnumConverter))]
     public enum UserType
     {
         CUSTOMER,
-        VENDOR,
+        CafeteriaManager,
         CAFE_USER
     }
 }

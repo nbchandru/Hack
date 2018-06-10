@@ -12,7 +12,6 @@ namespace magHack.core.DataBaseAccess
         bool Connect();
         bool Reconnect();
         bool Close();
-
-        OdbcDataReader CreateReaderWithQueryString(string queryString);
+        ICloneable GetDBConnection();
     }
 }

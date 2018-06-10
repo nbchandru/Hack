@@ -15,8 +15,9 @@ namespace magHack.core.DataSet
 
         public DBDataSet(IConnection dbConnection, string queryString)
         {
-            m_dataReader = dbConnection.CreateReaderWithQueryString(queryString);
-
+            var con = dbConnection.GetDBConnection() as OdbcConnection;
+            var commad = new OdbcCommand(queryString, con);
+            m_dataReader = commad.ExecuteReader();
         }
 
 
@@ -24,12 +25,12 @@ namespace magHack.core.DataSet
         {
             if (disposeManaged)
             {
-                Dispose();
+                m_dataReader.Close();
             }
         }
         public void Dispose()
         {
-            m_dataReader.Close();
+            Dispose(true);
         }
         public List<string> GetRow()
         {
