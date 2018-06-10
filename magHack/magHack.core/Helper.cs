@@ -10,25 +10,26 @@ using Newtonsoft.Json;
 using magHack.core.Model;
 using magHack.core.Persister;
 using magHack.core.DataBaseAccess;
+using magHack.core.DataSet;
 
 namespace magHack.core
 {
     public class Helper
     {
-        public static string GetQueryValue(string queryName)
+        public string GetQueryValue(string queryName)
         {
             string json = File.ReadAllText(@"C:\hackathon\Queries.json");
             JObject jObj = JObject.Parse(json);
             return jObj.GetValue(queryName).ToString();
         }
-        public static bool Login(LoginModel loginModel, string connectionString)
+        public bool Login(LoginModel loginModel, string connectionString)
         {
             using (var dbConnection = new ODBConnection(connectionString))
             using (var persister = new ODBCPersister(dbConnection))
             {
-                var count = int.Parse(persister.ExecuteScalar(string.Format(Helper.GetQueryValue("checkCustomerPassword"), loginModel.UserName, loginModel.Password, "active")).ToString()) +
-                    int.Parse(persister.ExecuteScalar(string.Format(Helper.GetQueryValue("checkCafeteriaManagerPassword"), loginModel.UserName, loginModel.Password, "active")).ToString()) +
-                    int.Parse(persister.ExecuteScalar(string.Format(Helper.GetQueryValue("checkCafeUserPassword"), loginModel.UserName, loginModel.Password, "active")).ToString());
+                var count = int.Parse(persister.ExecuteScalar(string.Format(GetQueryValue("checkCustomerPassword"), loginModel.UserName, loginModel.Password, "active")).ToString()) +
+                    int.Parse(persister.ExecuteScalar(string.Format(GetQueryValue("checkCafeteriaManagerPassword"), loginModel.UserName, loginModel.Password, "active")).ToString()) +
+                    int.Parse(persister.ExecuteScalar(string.Format(GetQueryValue("checkCafeUserPassword"), loginModel.UserName, loginModel.Password, "active")).ToString());
                 if (count > 0)
                 {
                     return true;
@@ -37,7 +38,30 @@ namespace magHack.core
 
             return false;
         }
-        public static bool SignUpStatusObject(ODBCPersister persister, SignUpModel signUpModel, string updatePersonCommand, string tableName, string updatetabelCommand)
+
+        public List<Dictionary<string, string>> GetODBCData(string connectionString, string queryString)
+        {
+            var data = new List<Dictionary<string, string>>();
+            using (var dbConnection = new ODBConnection(connectionString))
+            using (var dataSet = new DBDataSet(dbConnection, queryString))
+            {
+                var cols = dataSet.ColumnNames;
+                
+                while (dataSet.MoveNext())
+                {
+                    var dic = new Dictionary<string, string>();
+                    foreach (var col in cols)
+                    {
+                        dic[col] = dataSet.GetValue(col);
+                    }
+                    data.Add(dic);
+                }
+            }
+
+            return data;
+        }
+
+        public bool SignUpStatusObject(ODBCPersister persister, SignUpModel signUpModel, string updatePersonCommand, string tableName, string updatetabelCommand)
         {
             // accept the signUp
             persister.ExecuteNonQueryCmd("Person", updatePersonCommand);

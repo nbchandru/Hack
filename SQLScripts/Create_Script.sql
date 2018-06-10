@@ -57,7 +57,7 @@ insert into MagniFoodSchema.Customer values ('person04','noraml','abc@123','acti
 
 -- endpoint queries: 
 -- get all people
-select * from  MagniFoodSchema.Customer;
+select * from  MagniFoodSchema.CafeteriaManager;
 -- get 1 person based on ID
 select * from  MagniFoodSchema.Customer where CustomerID Like'%person01%';
 
@@ -90,10 +90,10 @@ select * from  MagniFoodSchema.CafeteriaVendor where CafeteriaVendorID Like'%ven
 select * from  MagniFoodSchema.CafeteriaVendor where CafeteriaVendorID Like'%vendor01%' and CafeteriaVendorStatus like '%active%';
 
 
-Create table MagniFoodSchema.CafeteriaVendorUser(
-    CafeteriaVendorUserID varchar(100),
-    CafeteriaVendorUserPassword varchar(1000) NOT NULL,
-    CafeteriaVendorUserStatus varchar(100)NOT NULL,
+Create table MagniFoodSchema.CafeteriaManager(
+    CafeteriaManagerID varchar(100),
+    CafeteriaManagerPassword varchar(1000) NOT NULL,
+    CafeteriaManagerStatus varchar(100)NOT NULL,
     CafeteriaVendorID varchar(100) NOT NULL,
   constraint fk_CV_CafeteriaVendorID foreign key (CafeteriaVendorID) 
       references MagniFoodSchema.CafeteriaVendor (CafeteriaVendorID), 
@@ -101,23 +101,28 @@ Create table MagniFoodSchema.CafeteriaVendorUser(
       references MagniFoodSchema.Person (UserID) 
 );
 
-insert into MagniFoodSchema.CafeteriaVendorUser values ('person01','abc@123','active','vendor01');
-insert into MagniFoodSchema.CafeteriaVendorUser values ('person02','abc@123','active','vendor01');
-insert into MagniFoodSchema.CafeteriaVendorUser values ('person04','abc@123','active','vendor02');
-insert into MagniFoodSchema.CafeteriaVendorUser values ('person03','abc@123','active','vendor02');
+insert into MagniFoodSchema.CafeteriaManager values ('person01','abc@123','active','vendor01');
+insert into MagniFoodSchema.CafeteriaManager values ('person02','abc@123','active','vendor01');
+insert into MagniFoodSchema.CafeteriaManager values ('person04','abc@123','active','vendor02');
+insert into MagniFoodSchema.CafeteriaManager values ('person03','abc@123','active','vendor02');
 
 -- endpoint queries: 
 -- get all people
-select * from  MagniFoodSchema.CafeteriaVendorUser;
+select * from  MagniFoodSchema.cafeteriamanager;
+select count(CafeID) from MagniFoodSchema.Cafe where CafeID Like '%cafe01%';
+select count(CafeteriaManagerID) from  MagniFoodSchema.CafeteriaManager where CafeteriaVendorID Like'%person01%';
 -- get 1 person based on ID
 select * from  MagniFoodSchema.CafeteriaVendorUser where CafeteriaVendorUserID Like'%person01%';
 -- endpoint queries:
 -- get full customer info
-select * from MagniFoodSchema.CafeteriaVendorUser c ,MagniFoodSchema.Person p where c.CafeteriaVendorUserID= p.UserID;
+select * from MagniFoodSchema.CafeteriaManager c ,MagniFoodSchema.Person p where c.CafeteriaManagerID= p.UserID;
 --endpoint to active/inactive user
-select * from MagniFoodSchema.CafeteriaVendorUser c ,MagniFoodSchema.Person p where c.CafeteriaVendorUserID= p.UserID and c.CafeteriaVendorUserStatus like '%active%';
+select * from MagniFoodSchema.CafeteriaManager c ,MagniFoodSchema.Person p where c.CafeteriaManagerID= p.UserID and c.CafeteriaManagerStatus like '%active%';
 
-
+select count(*) from MagniFoodSchema.StoreHouseInventory where IngredientID Like '%ingredient01%';
+select count(IngredientID) from MagniFoodSchema.StoreHouseInventory where IngredientID Like '%ingredient01%';
+select count(IngredientID) from MagniFoodSchema.StoreHouseInventory where IngredientID Like '%ingredient01%';
+select * from cafeteriamanager;
 
 Create table MagniFoodSchema.Cafe(
     CafeID varchar(100) NOT NULL PRIMARY KEY,
@@ -127,6 +132,8 @@ Create table MagniFoodSchema.Cafe(
       constraint fk_CV_CafeteriaVendorID2 foreign key (CafeteriaVendorID) 
       references MagniFoodSchema.CafeteriaVendor (CafeteriaVendorID)  
 );
+
+Update MagniFoodSchema.Cafe SET CafeID='cafe01_new',CafeName= 'cafe01',CafeStatus='active',CafeteriaVendorID='vendor01' where CafeID like '%cafe01%';
 
 insert into MagniFoodSchema.Cafe values ('cafe01','Nandhi1','active','vendor01');
 insert into MagniFoodSchema.Cafe values ('cafe02','Nandhi2','active','vendor01');
@@ -144,7 +151,7 @@ insert into MagniFoodSchema.Cafe values ('cafeIDX','NameX','active','vendorIDX')
 Update MagniFoodSchema.Cafe SET CafeID= 'cafe01',CafeName= 'Nandhi9',CafeStatus='active',CafeteriaVendorID='vendor01' where CafeID like '%cafe01%';
 --Post: delete/disable
 Update MagniFoodSchema.Cafe SET CafeStatus='disabled' where CafeteriaVendorID like '%vendor01%' and CafeID like '%cafe01%';
-
+drop table MagniFoodSchema.StoreHouseInventory;
 Create table MagniFoodSchema.StoreHouseInventory(
     IngredientID varchar(100) NOT NULL PRIMARY KEY,
     IngredientName varchar(1000) NOT NULL,
@@ -207,7 +214,7 @@ select * from  MagniFoodSchema.CafeUser;
 select * from  MagniFoodSchema.CafeUser where CafeUserID Like'%person01%';
 
 
-    
+    drop table CafeMenu;
     
 Create table MagniFoodSchema.CafeMenu(
     CafeMenuID varchar(100) NOT NULL PRIMARY KEY,
@@ -215,13 +222,17 @@ Create table MagniFoodSchema.CafeMenu(
     CafeMenuStatus varchar(100) NOT NULL,
     CafeID varchar(1000),
     constraint fk_cafe_cafeID2 foreign key (CafeID) 
-      references MagniFoodSchema.Cafe (CafeID)
+      references MagniFoodSchema.Cafe (CafeID) on update cascade
 );
 
 insert into MagniFoodSchema.CafeMenu values ('cafemenu01','nandhiSpecialMenu01','active','cafe01');    
 insert into MagniFoodSchema.CafeMenu values ('cafemenu02','nandhiSpecialMenu02','active','cafe01');  
 insert into MagniFoodSchema.CafeMenu values ('cafemenu03','nandhiSpecialMenu03','active','cafe01');  
 insert into MagniFoodSchema.CafeMenu values ('cafemenu04','nandhiSpecialMenu04','active','cafe01');  
+
+insert into MagniFoodSchema.CafeMenu values ('cafemenu05','nandhiSpecialMenu04','active','cafe02');
+insert into MagniFoodSchema.CafeMenu values ('cafemenu06','nandhiSpecialMenu04','active','cafe02');
+insert into MagniFoodSchema.CafeMenu values ('cafemenu07','nandhiSpecialMenu04','active','cafe02');
 
 -- endpoint queries: 
 -- get all people
@@ -250,7 +261,7 @@ select count(FoodItemID) from FoodItem ;
 select count(FoodItemID) from FoodItem f,CafeMenu m, cafe c where f.CafeMenuID = m.CafeMenuID and m.CafeID=c.CafeID and c.CafeID like'%%' order by c.CafeID ;
 -- get names of all food items
 select f.FoodItemName from FoodItem f,CafeMenu m, cafe c where f.CafeMenuID = m.CafeMenuID and m.CafeID=c.CafeID and f.FoodItemStatus='available' and c.CafeStatus='active' and c.CafeID like'%%' order by c.CafeID ;
-
+select f.FoodItemName from  MagniFoodSchema.FoodItem f,MagniFoodSchema.CafeMenu m, MagniFoodSchema.Cafe c  where f.CAFEMENUID=m.CAFEMENUID and m.CAFEID=c.CAFEID and c.CafeID='cafe01' AND f.FoodItemStatus='available'
 
 insert into MagniFoodSchema.FoodItem values ('fooditem01','Chicken Egg Wrap ','nonveg','special sauce with chicken wrapped in egg roll',100.01,'available','cafemenu01'); 
 insert into MagniFoodSchema.FoodItem values ('fooditem02','Chicken Egg Wrap ','nonveg','special sauce with chicken wrapped in egg roll',100.01,'available','cafemenu01'); 
@@ -259,9 +270,9 @@ insert into MagniFoodSchema.FoodItem values ('fooditem04','Chicken Egg Wrap ','n
 
 -- endpoint queries: 
 -- get all food items
-select * from  MagniFoodSchema.FoodItem;
+select * from  MagniFoodSchema.Cafe;
 -- get all food item served on for 1 caffe based on caffe id
-select * from  MagniFoodSchema.FoodItem f,MagniFoodSchema.CafeMenu m, MagniFoodSchema.Cafe c  where f.CAFEMENUID=m.CAFEMENUID and m.CAFEID=c.CAFEID and c.CafeID='cafe01'  ;
+select f.FoodItemName from  MagniFoodSchema.FoodItem f,MagniFoodSchema.CafeMenu m, MagniFoodSchema.Cafe c  where f.CAFEMENUID=m.CAFEMENUID and m.CAFEID=c.CAFEID and c.CafeID='cafe01'  ;
 -- get 1 food item on ID
 select * from  MagniFoodSchema.FoodItem where FoodItemID Like'%fooditem01%';
 -- add 1 food item
@@ -290,10 +301,10 @@ Create table MagniFoodSchema.FoodItemRecipe
 
 
 insert into MagniFoodSchema.FoodItemRecipe values ('fooditem01',100,'gram','ingredient01'); 
-insert into MagniFoodSchema.FoodItemRecipe values ('fooditem01',50,'gram','ingredient02');
-insert into MagniFoodSchema.FoodItemRecipe values ('fooditem01',1,'gram','ingredient03');
-insert into MagniFoodSchema.FoodItemRecipe values ('fooditem01',10,'ml','ingredient04');
-insert into MagniFoodSchema.FoodItemRecipe values ('fooditem01',10,'packet','ingredient05');
+insert into MagniFoodSchema.FoodItemRecipe values ('fooditem02',50,'gram','ingredient02');
+insert into MagniFoodSchema.FoodItemRecipe values ('fooditem03',1,'gram','ingredient03');
+insert into MagniFoodSchema.FoodItemRecipe values ('fooditem04',10,'ml','ingredient04');
+insert into MagniFoodSchema.FoodItemRecipe values ('fooditem05',10,'packet','ingredient05');
 
 -- endpoint queries: 
 -- get all food ingredients for all items
@@ -358,14 +369,16 @@ Create table MagniFoodSchema.CustomerOrderFoodList
       references MagniFoodSchema.FoodItem (FoodItemID)
 );
 
+select c.CafeID as CafeID,o.CustomerOrderID as CustomerOrderID,o.CustomerOrderStatus as CustomerOrderStatus, x.FoodItemID as FoodItemID from  MagniFoodSchema.CustomerOrderFoodList x, MagniFoodSchema.FoodItem f,CustomerOrder o,MagniFoodSchema.CafeMenu m, MagniFoodSchema.Cafe c where x.FoodItemID = f.FoodItemID and f.CAFEMENUID = m.CAFEMENUID and m.CafeID=c.CafeID;
+
 insert into MagniFoodSchema.CustomerOrderFoodList values ('customerorder01','fooditem01',10.0,'orderplaced','cafemenu01'); 
 insert into MagniFoodSchema.CustomerOrderFoodList values ('customerorder01','fooditem02',1,'under preparation','cafemenu01'); 
 insert into MagniFoodSchema.CustomerOrderFoodList values ('customerorder01','fooditem03',2,'queued','cafemenu01'); 
 insert into MagniFoodSchema.CustomerOrderFoodList values ('customerorder01','fooditem04',3,'queued','cafemenu01'); 
-
+Update MagniFoodSchema.FoodItem SET FoodItemID= 'fooditem11',FoodItemName= 'Manjus special',FoodItemType='Veg',FoodItemDescription='masala....:P',FoodItemCost= 123.2,FoodItemStatus = 'active',CafeMenuID='cafemenu01' where CafeMenuID like '%cafemenu01%' and FoodItemID like '%fooditem11%';
 -- endpoint queries: 
 -- get all food items 
-select * from  MagniFoodSchema.CustomerOrderFoodList;
+select * from  MagniFoodSchema.FoodItem;
 -- get all active food items being cooked for 1 customer order
 select * from  MagniFoodSchema.CustomerOrderFoodList where CustomerOrderID Like'%customerorder01%';
 -- get all food customer ordered based on customer id
@@ -392,11 +405,11 @@ select c.FoodItemName,a.FoodItemQuantity,a.FoodItemQuantity,b.CustomerOrderStatu
 -- keep reading through list and check till how many items u can satisfy
 -- if cant get full order, throw error saying how many you can order
 -- user must then reply with correct number of items
-select * from r.FoodItemRecipe, r.FoodItemIngredientQuantity,s.IngredientQuantity, s.IngredientStatus 
+select r.FoodItemIngredientQuantity,s.IngredientQuantity, s.IngredientStatus 
 from  FoodItemRecipe r, FoodItem f, StoreHouseInventory s 
 where s.IngredientID=r.IngredientID and r.FoodItemID=f.FoodItemID and f.FoodItemStatus=='active' and f.FoodItemName like '%%';
 
-select * from r.FoodItemRecipe, r.FoodItemIngredientQuantity from  FoodItemRecipe r, FoodItem f where r.FoodItemID=f.FoodItemID and f.FoodItemStatus=='active' and f.FoodItemName like '%%';
+--select * from r.FoodItemRecipe, r.FoodItemIngredientQuantity from  FoodItemRecipe r, FoodItem f where r.FoodItemID=f.FoodItemID and f.FoodItemStatus=='active' and f.FoodItemName like '%%';
 
 --if  all orders can be done then decriment from the store house and add to order and orderlist -- if empty then to to not_available
 Update MagniFoodSchema.StoreHouseInventory SET IngredientQuantity='',IngredientQuantityUnit='vendor01',IngredientStatus='' where IngredientID = 'Ingredient01';
@@ -409,3 +422,18 @@ Update MagniFoodSchema.FoodItem SET FoodItemStatus='not_available' where Ingredi
 insert into MagniFoodSchema.CustomerOrder (CustomerOrderID,CustomerOrderStatus,CustomerOrderTotal,CafeID,CustomerID) values ('customerorder01','pending',1000.01,'cafe01','person01'); 
 insert into MagniFoodSchema.CustomerOrderFoodList values ('customerorder01','fooditem01',10.0,'orderplaced','cafemenu01'); 
 
+
+select sum(z),FoodItemStatus,IngredientID from (select r.FoodItemIngredientQuantity as z ,r.IngredientID , f.FoodItemStatus from  FoodItem f, FoodItemRecipe r, CustomerOrderFoodList o, CustomerOrder c 
+where r.FoodItemID = o.FoodItemID and o.CustomerOrderID = c.CustomerOrderID and f.FoodItemID=o.FoodItemID);
+select r.FoodItemIngredientQuantity as z ,r.IngredientID as w, f.FoodItemStatus as s from  FoodItem f, FoodItemRecipe r, CustomerOrderFoodList o, CustomerOrder c 
+where r.FoodItemID = o.FoodItemID and o.CustomerOrderID = c.CustomerOrderID and f.FoodItemID=o.FoodItemID and o.CustomerOrderID= 'customerorder01';
+
+select sum(z),w,top 1 ada from (select r.FoodItemIngredientQuantity as z ,r.IngredientID as w, f.FoodItemStatus as ada from  FoodItem f, FoodItemRecipe r, CustomerOrderFoodList o, CustomerOrder c 
+where r.FoodItemID = o.FoodItemID and o.CustomerOrderID = c.CustomerOrderID and f.FoodItemID=o.FoodItemID and o.CustomerOrderID= 'customerorder01' ) group by w;
+
+select sum(z) ,IngredientStatus,IngredientID from (select s.IngredientQuantity as z,s.IngredientStatus,s.IngredientID from StoreHouseInventory s, FoodItemRecipe r, CustomerOrderFoodList o, CustomerOrder c 
+where s.IngredientID=r.IngredientID and r.FoodItemID = o.FoodItemID and o.CustomerOrderID=c.CustomerOrderID);
+
+
+select s.IngredientQuantity as z,s.IngredientStatus,s.IngredientID from StoreHouseInventory s, FoodItemRecipe r, CustomerOrderFoodList o, CustomerOrder c 
+where s.IngredientID=r.IngredientID and r.FoodItemID = o.FoodItemID and o.CustomerOrderID=c.CustomerOrderID;

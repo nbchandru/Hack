@@ -44,7 +44,6 @@ namespace magHack.core.DataSet
             m_dataReader = commad.ExecuteReader();
         }
 
-
         protected virtual void Dispose(bool disposeManaged)
         {
             if (disposeManaged)

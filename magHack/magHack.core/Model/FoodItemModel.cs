@@ -8,12 +8,21 @@ using Newtonsoft.Json.Converters;
 
 namespace magHack.core.Model
 {
-    public class FoodItemModel
+    [Serializable]
+    public class FoodItemModel : IModel
     {
         public string FoodItemID { get; set; }
         public string FoodItemName { get; set; }
 
         public FoodItemType FoodItemType { get; set; }
+
+        public string FoodItemDescription { get; set; }
+
+        public string FoodItemCost { get; set; }
+
+        public string FoodItemStatus { get; set; }
+
+        public string CafeMenuID { get; set; }
     }
 
 

@@ -23,13 +23,26 @@
   "updateCafe": "Update MagniFoodSchema.Cafe SET CafeID='{4}',CafeName= '{1}',CafeStatus='{2}',CafeteriaVendorID='{3}' where CafeID like '%{0}%';",
   "allcafes": "select * from  MagniFoodSchema.Cafe where CafeStatus Like'%{0}%';",
   "allorders": "select c.CafeID,o.CustomerOrderID,o.CustomerOrderStatus  from  MagniFoodSchema.CustomerOrderFoodList x, MagniFoodSchema.FoodItem f,CustomerOrder o,MagniFoodSchema.CafeMenu m, MagniFoodSchema.Cafe c where x.FoodItemID = f.FoodItemID and f.CAFEMENUID = m.CAFEMENUID and m.CafeID=c.CafeID",
-  "cafeAllCustomerOrders": "select c.CafeID as CafeID,o.CustomerOrderID as CustomerOrderID,o.CustomerOrderStatus as CustomerOrderStatus, x.FoodItemID as FoodItemID from  MagniFoodSchema.CustomerOrderFoodList x, MagniFoodSchema.FoodItem f,CustomerOrder o,MagniFoodSchema.CafeMenu m, MagniFoodSchema.Cafe c where x.FoodItemID = f.FoodItemID and f.CAFEMENUID = m.CAFEMENUID and m.CafeID=c.CafeID and c.CafeID Like'%{0}%';",
+  "cafeAllCustomerOrdersFromCafe": "select c.CafeID as CafeID,o.CustomerOrderID as CustomerOrderID,o.CustomerOrderStatus as CustomerOrderStatus, x.FoodItemID as FoodItemID from  MagniFoodSchema.CustomerOrderFoodList x, MagniFoodSchema.FoodItem f,CustomerOrder o,MagniFoodSchema.CafeMenu m, MagniFoodSchema.Cafe c where x.FoodItemID = f.FoodItemID and f.CAFEMENUID = m.CAFEMENUID and m.CafeID=c.CafeID and c.CafeID Like'%{0}%';",
+  "cafeAllCustomerOrders": "select c.CafeID as CafeID,o.CustomerOrderID as CustomerOrderID,o.CustomerOrderStatus as CustomerOrderStatus, x.FoodItemID as FoodItemID from  MagniFoodSchema.CustomerOrderFoodList x, MagniFoodSchema.FoodItem f,CustomerOrder o,MagniFoodSchema.CafeMenu m, MagniFoodSchema.Cafe c where x.FoodItemID = f.FoodItemID and f.CAFEMENUID = m.CAFEMENUID and m.CafeID=c.CafeID;",
   "cafeFoodItems": "select f.FoodItemName from FoodItem f,CafeMenu m, cafe c where f.CafeMenuID = m.CafeMenuID and m.CafeID=c.CafeID and f.FoodItemStatus='available' and c.CafeStatus='active' and c.CafeID like'%{0}%';",
   "countOfCafeFoodItem":"select count(*) from FoodItem f,CafeMenu m, cafe c where f.CafeMenuID = m.CafeMenuID and m.CafeID=c.CafeID and c.CafeID like'%{0}%';",
   "addFoodItem": "insert into MagniFoodSchema.FoodItem values ('{0}','{1}','{2}','{3}',{4},'{5}','{6}');",
   "foodItemIngredient": "select r.FoodItemIngredientQuantity,s.IngredientQuantity, s.IngredientStatus, f.FoodItemStatus from  FoodItemRecipe r, FoodItem f, StoreHouseInventory s where s.IngredientID=r.IngredientID and r.FoodItemID=f.FoodItemID and f.FoodItemName like '%{0}%';",
-  "decrimentStore": "Update MagniFoodSchema.StoreHouseInventory SET IngredientQuantity='{0}',IngredientStatus='{2}' where IngredientID = '{3}';",
+  
+  "decrimentStore": "Update MagniFoodSchema.StoreHouseInventory SET IngredientQuantity='{0}',IngredientStatus='{1}' where IngredientID = '{2}';",
   "marFoodItemNA": "Update MagniFoodSchema.FoodItem SET FoodItemStatus='not_available' where IngredientID = (select f.FoodItemID from FoodItem f,FoodItemRecipe r, StoreHouseInventory s where f.FoodItemID=r.FoodItemID and r.IngredientID=s.IngredientID and s.IngredientStatus='not_available' );",
+  
   "addCustomerOrder": "insert into MagniFoodSchema.CustomerOrder (CustomerOrderID,CustomerOrderStatus,CustomerOrderTotal,CafeID,CustomerID) values ('{0}','{1}',{2},'{3}','{4}');",
-  "addCustomerOrderFoodList": "insert into MagniFoodSchema.CustomerOrderFoodList values ('{0}','{1}',{2},'{3}','{4}');"
+  "addCustomerOrderFoodList": "insert into MagniFoodSchema.CustomerOrderFoodList values ('{0}','{1}',{2},'{3}','{4}');",
+  "insertFoodItem": "insert into MagniFoodSchema.FoodItem values ('{0}','{1}','{2}','{3}',{4},'{5}','{6}'); ",
+  "updateFoodItem": "Update MagniFoodSchema.FoodItem SET FoodItemID= '{0}',FoodItemName= '{1}',FoodItemType='{2}',FoodItemDescription='{3}',FoodItemCost= {4},FoodItemStatus = '{5}',CafeMenuID='{6}' where CafeMenuID like '%{6}%' and FoodItemID like '%{0}%';",
+  "insertRecipe": "insert into MagniFoodSchema.FoodItemRecipe values ('{0}',{1},'{2}','{3}');",
+  "updateRecipe": "Update MagniFoodSchema.FoodItemRecipe SET FoodItemIngredientQuantity={0} where FoodItemID Like '%{1}%';",
+  "cafeMenueItems": "select f.FoodItemName from  MagniFoodSchema.FoodItem f,MagniFoodSchema.CafeMenu m, MagniFoodSchema.Cafe c  where f.CAFEMENUID=m.CAFEMENUID and m.CAFEID=c.CAFEID and c.CafeID='{0}' AND f.FoodItemStatus='available';",
+  "registerOrder": "insert into MagniFoodSchema.CustomerOrder (CustomerOrderID,CustomerOrderStatus,CustomerOrderTotal,CafeID,CustomerID) values ('{1}','{1}',{2},'{3}','{4}');",
+  "addFoodToORder": " insert into MagniFoodSchema.CustomerOrderFoodList values ('{0}','{1}',{2},'{3}','{4}')",
+  "updateOrderStatus": "Update MagniFoodSchema.CustomerOrder SET CustomerOrderStatus= '{1}' where CustomerOrderID like '%{0}%';",
+  "inventoryCheck": "select IngredientID, IngredientQuantity , totalIngredientQuantityRequired from storehouseinventory right outer join (select sum(FoodItemIngredientQuantity) as totalIngredientQuantityRequired, IngredientID as IngredientID_2 from (select r.FoodItemIngredientQuantity as FoodItemIngredientQuantity ,r.IngredientID as IngredientID, f.FoodItemStatus as ada from  FoodItem f, FoodItemRecipe r, CustomerOrderFoodList o, CustomerOrder c where r.FoodItemID = o.FoodItemID and o.CustomerOrderID = c.CustomerOrderID and f.FoodItemID=o.FoodItemID and o.CustomerOrderID= '{0}') group by IngredientID ) on storehouseinventory.IngredientID = IngredientID_2;",
+  "foodDetails": "select FoodItemID,fooditemname,fooditemcost,fooditemstatus from FoodItem where fooditemname like '%{0}%';"
 }

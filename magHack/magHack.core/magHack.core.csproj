@@ -91,6 +91,7 @@
     <Compile Include="Model\InventoryUpdateModel.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\PersonModel.cs" />
+    <Compile Include="Model\RecipeUpdateModel.cs" />
     <Compile Include="Model\SignUpModel.cs" />
     <Compile Include="Model\StoreHouseInventoryModel.cs" />
     <Compile Include="Persister\ODBCPersister.cs" />
